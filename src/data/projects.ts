@@ -1,0 +1,133 @@
+export interface Project {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  categorySlug: string;
+  description: string;
+  tags: string[];
+  logo: string;
+  accentColor: string;
+  status: "published" | "coming-soon" | "in-development";
+  liveUrl: string;
+}
+
+export const projects: Project[] = [
+  {
+    id: "chandriva-club",
+    title: "Chandriva Club",
+    slug: "chandriva-club",
+    category: "Enterprise",
+    categorySlug: "enterprise",
+    description: "A complete hotel management and CRM platform that streamlines reservations, guest management, staff operations, billing, reporting, and hospitality workflows for modern hotels.",
+    tags: ["React", "Next.js", "Firebase", "CRM", "Hotel Management"],
+    logo: "/assets/icons/chandriva.png",
+    accentColor: "#A6862C",
+    status: "published",
+    liveUrl: "https://chandrivaclub.com/",
+  },
+  {
+    id: "malwarex",
+    title: "MalwareX",
+    slug: "malwarex",
+    category: "AI & Security",
+    categorySlug: "ai-security",
+    description: "Next-generation cybersecurity platform providing real-time malware detection, phishing prevention, clone app identification, network monitoring, and intelligent threat analysis powered by machine learning.",
+    tags: ["Flutter", "AI Security", "Machine Learning", "Threat Intelligence", "Cyber Defense"],
+    logo: "/assets/icons/malwarex.png",
+    accentColor: "#E14B3D",
+    status: "published",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.malwarex.app",
+  },
+  {
+    id: "wordique",
+    title: "Wordique",
+    slug: "wordique",
+    category: "Education",
+    categorySlug: "education",
+    description: "Interactive vocabulary and language learning platform designed to improve communication and learning outcomes through engaging exercises and personalized learning paths.",
+    tags: ["Flutter", "Education", "Mobile App", "Learning", "Spaced Repetition"],
+    logo: "/assets/icons/wordique.png",
+    accentColor: "#169B62",
+    status: "published",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.akhil.wordique",
+  },
+  {
+    id: "visilearn",
+    title: "VisiLearn",
+    slug: "visilearn",
+    category: "Education",
+    categorySlug: "education",
+    description: "Modern interactive learning platform that transforms complex NLP and AI concepts into real-time visual experiences through tokenizers, attention maps, sentiment analysis, NER, embeddings, and hands-on algorithm visualizers.",
+    tags: ["AI", "NLP", "EdTech", "Visualization", "Next.js", "Open Source"],
+    logo: "/assets/icons/VisiLearn.png",
+    accentColor: "#7C5CE0",
+    status: "published",
+    liveUrl: "https://visilearn.vercel.app/",
+  },
+  {
+    id: "buildhub",
+    title: "BuildHub",
+    slug: "buildhub",
+    category: "Enterprise",
+    categorySlug: "enterprise",
+    description: "A complete hotel management and CRM platform that streamlines reservations, guest management, staff operations, billing, reporting, and hospitality workflows for modern hotels.",
+    tags: ["React", "Next.js", "Firebase", "CRM", "Hotel Management"],
+    logo: "/assets/icons/buildhub.svg",
+    accentColor: "#E07A2E",
+    status: "in-development",
+    liveUrl: "#",
+  },
+  {
+    id: "universe",
+    title: "Universe",
+    slug: "universe",
+    category: "Enterprise",
+    categorySlug: "enterprise",
+    description: "An all-in-one educational ERP platform for colleges and universities featuring admissions, attendance, academics, examinations, fee management, communication, and student lifecycle management.",
+    tags: ["Flutter", "ERP", "Education", "Firebase", "SaaS"],
+    logo: "/assets/icons/universe.svg",
+    accentColor: "#2E8FE0",
+    status: "in-development",
+    liveUrl: "#",
+  },
+  {
+    id: "apoet",
+    title: "Apoet",
+    slug: "apoet",
+    category: "Creative",
+    categorySlug: "creative",
+    description: "A creative platform designed for poets and writers to share, discover, and connect through the art of poetry and written expression.",
+    tags: ["Flutter", "Creative", "Social", "Writing"],
+    logo: "/assets/icons/apoet.webp",
+    accentColor: "#EC4899",
+    status: "published",
+    liveUrl: "#",
+  },
+  {
+    id: "word-search",
+    title: "Word Search",
+    slug: "word-search",
+    category: "Games",
+    categorySlug: "games",
+    description: "A beautifully designed word search puzzle game with hundreds of levels, multiple categories, and a relaxing gameplay experience.",
+    tags: ["Flutter", "Games", "Puzzle", "Mobile"],
+    logo: "/assets/icons/word.webp",
+    accentColor: "#22C55E",
+    status: "published",
+    liveUrl: "#",
+  },
+  {
+    id: "ball-sort",
+    title: "Ball Sort",
+    slug: "ball-sort",
+    category: "Games",
+    categorySlug: "games",
+    description: "An addictive and colorful ball sorting puzzle game with hundreds of levels, smooth animations, and satisfying gameplay mechanics.",
+    tags: ["Flutter", "Games", "Puzzle", "Casual"],
+    logo: "/assets/icons/ball sort.webp",
+    accentColor: "#3B82F6",
+    status: "published",
+    liveUrl: "#",
+  },
+];
