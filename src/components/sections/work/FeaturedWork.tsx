@@ -577,12 +577,7 @@ export default function FeaturedWork() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden"
-      style={{
-        background: "#F2EFE9",
-        paddingTop: "2rem",
-        paddingBottom: "2rem",
-      }}
+      className="relative w-full overflow-hidden bg-[#F2EFE9] py-16 md:py-24 lg:py-32"
       aria-label="Featured Work"
     >
       {/* ─── Background atmosphere layers ─── */}

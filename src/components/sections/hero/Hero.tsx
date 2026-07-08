@@ -239,7 +239,7 @@ function HeroScene() {
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#050807]">
+    <section className="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden bg-[#050807]">
       {/* Three.js Core Scene - animated mesh */}
       <CoreScene />
 
@@ -282,7 +282,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1], delay: 0.1 }}
-            className="text-[clamp(40px,7vw,88px)] leading-[1.06] tracking-[-0.03em] text-white mb-4 font-bold"
+            className="text-[clamp(36px,7vw,88px)] leading-[1.06] tracking-[-0.03em] text-white mb-5 sm:mb-4 font-bold"
           >
             Engineering{" "}
             <span className="block md:inline">Tomorrow'</span>
@@ -314,7 +314,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1], delay: 0.45 }}
-            className="flex items-center gap-5 flex-wrap justify-center"
+            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 flex-wrap justify-center"
           >
             <MagneticWrapper strength={0.25}>
               <Link
@@ -352,7 +352,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1], delay: 0.6 }}
-          className="w-full px-6 sm:px-8 pb-10 md:pb-14"
+          className="w-full px-6 sm:px-8 pb-10 md:pb-14 mt-12 sm:mt-16 md:mt-20"
         >
           <div className="w-full max-w-[1400px] mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">

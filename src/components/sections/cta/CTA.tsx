@@ -206,7 +206,7 @@ export default function CTA() {
       ref={sectionRef}
       id="cta"
       aria-label="Start Your Project"
-      className="relative overflow-hidden py-8"
+      className="relative overflow-hidden py-16 md:py-24 lg:py-32"
     >
       <PremiumBackground />
 

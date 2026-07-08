@@ -344,7 +344,7 @@ export default function ProcessJourney() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#F8F6F1] py-8"
+      className="relative overflow-hidden bg-[#F8F6F1] py-16 md:py-24 lg:py-32"
     >
       {/* ═══ Background Layers ═══ */}
       <div className="pointer-events-none absolute inset-0">
@@ -443,7 +443,7 @@ export default function ProcessJourney() {
         </div>
 
         {/* ═══ Timeline Connection ═══ */}
-        <div className="relative mb-[60px]">
+        <div className="relative mb-[60px] hidden md:block">
           <TimelineLine isInView={isInView} />
 
           {/* Timeline labels */}
@@ -476,6 +476,53 @@ export default function ProcessJourney() {
                 <span className="text-[13px] font-bold uppercase tracking-[0.15em] text-[#9E9E9E]">
                   {phase.title}
                 </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ═══ Mobile Vertical Timeline ═══ */}
+        <div className="relative mb-10 block md:hidden">
+          <div className="flex flex-col items-center gap-0">
+            {processPhases.map((phase, i) => (
+              <motion.div
+                key={phase.id}
+                className="flex items-center gap-4 w-full max-w-[280px]"
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.3 + i * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {/* Timeline rail: dot + line */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <motion.div
+                    className="h-3 w-3 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: "#169B62" }}
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.5 + i * 0.12,
+                      ease: "backOut",
+                    }}
+                  />
+                  {i < processPhases.length - 1 && (
+                    <div className="w-px h-10 bg-gradient-to-b from-[#169B62]/30 to-transparent" />
+                  )}
+                </div>
+
+                {/* Label + subtitle */}
+                <div className="py-2">
+                  <span className="text-[14px] font-bold uppercase tracking-[0.12em] text-[#169B62]">
+                    ● {phase.title}
+                  </span>
+                  <span className="block text-[12px] text-[#9E9E9E] font-medium mt-0.5">
+                    {phase.subtitle}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>

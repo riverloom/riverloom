@@ -414,7 +414,7 @@ export default function WhyRiverLoom() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#F8F6F1] py-10 md:py-16"
+      className="relative overflow-hidden bg-[#F8F6F1] py-16 md:py-24 lg:py-32"
     >
       {/* ══════════════════════════════════════════════
           LAYERED PREMIUM BACKGROUND

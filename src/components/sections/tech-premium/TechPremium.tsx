@@ -593,7 +593,7 @@ export default function TechPremium() {
       ref={sectionRef}
       id="technology"
       onMouseMove={handleMouseMove}
-      className="relative py-8 overflow-hidden bg-[var(--section-light-green)]"
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[var(--section-light-green)]"
     >
       <BackgroundMesh mx={mouse.x} my={mouse.y} />
       <ParticleField />

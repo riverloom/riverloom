@@ -303,7 +303,7 @@ export default function Testimonials() {
       ref={sectionRef}
       id="testimonials"
       aria-label="Client Testimonials"
-      className="relative overflow-hidden bg-[var(--bg)] py-8"
+      className="relative overflow-hidden bg-[var(--bg)] py-16 md:py-24 lg:py-32"
     >
       <BackgroundDecorations />
 
