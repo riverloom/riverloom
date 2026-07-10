@@ -122,9 +122,7 @@ export default function CoreScene() {
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      // detail 64 was generating billions of triangles (20 × 4^64) causing extreme lag.
-      // detail 3 gives the same smooth organic look with thousands not billions of triangles.
-      const coreGeo = new THREE.IcosahedronGeometry(2.5, 3);
+      const coreGeo = new THREE.IcosahedronGeometry(2.5, 8);
       const coreMat = new THREE.ShaderMaterial({
         vertexShader,
         fragmentShader,
