@@ -122,7 +122,7 @@ export default function CoreScene() {
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      const coreGeo = new THREE.IcosahedronGeometry(2.5, 8);
+      const coreGeo = new THREE.IcosahedronGeometry(2.5, 64);
       const coreMat = new THREE.ShaderMaterial({
         vertexShader,
         fragmentShader,
