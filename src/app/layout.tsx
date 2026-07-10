@@ -3,8 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import WhatsAppFab from "@/components/ui/WhatsAppFab";
-import JsonLd from "@/components/seo/JsonLd";
-import { GoogleAnalytics, GoogleTagManager, MicrosoftClarity, Hotjar, MetaPixel, LinkedInInsight, PageviewTracker } from "@/components/seo/Analytics";
+import { GoogleAnalytics, MicrosoftClarity, PageviewTracker } from "@/components/seo/Analytics";
 import { buildMetadata } from "@/lib/metadata";
 import { defaultViewport } from "@/lib/viewport";
 import { siteConfig, pageMeta } from "@/lib/site-config";
@@ -42,6 +41,14 @@ export default function RootLayout({
 
         {/* ─── Preload key assets ─── */}
         <link rel="preload" href={siteConfig.logo} as="image" />
+
+        {/* ─── Google Search Console verification ─── */}
+        {siteConfig.verification.google && (
+          <meta
+            name="google-site-verification"
+            content={siteConfig.verification.google}
+          />
+        )}
 
         {/* ─── JSON-LD Structured Data (site-wide) ─── */}
         <script
@@ -82,17 +89,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#F8F6F1] text-[#1C1C1C] antialiased">
-        {/* ─── Google Tag Manager (noscript) ─── */}
-        {process.env.NEXT_PUBLIC_GTM_ID && process.env.NEXT_PUBLIC_GTM_ID !== "GTM-XXXXXXX" && (
-          <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript>
-        )}
 
         <Navbar />
         <main>{children}</main>
@@ -101,11 +97,7 @@ export default function RootLayout({
 
         {/* ─── Analytics Scripts ─── */}
         <GoogleAnalytics />
-        <GoogleTagManager />
         <MicrosoftClarity />
-        <Hotjar />
-        <MetaPixel />
-        <LinkedInInsight />
         <PageviewTracker />
       </body>
     </html>

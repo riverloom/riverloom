@@ -94,7 +94,7 @@ export function buildMetadata(pageMeta: PageMeta, path: string): Metadata {
     },
 
     /* ─── Manifest ─── */
-    manifest: "/manifest.json",
+    manifest: "/manifest.webmanifest",
 
     /* ─── Verification ─── */
     verification: {

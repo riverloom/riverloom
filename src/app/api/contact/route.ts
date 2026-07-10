@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY || "");
+function getResend() {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  return new Resend(key);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -35,7 +39,8 @@ export async function POST(request: NextRequest) {
 
     const contactEmail = process.env.CONTACT_EMAIL || "contact@riverloom.in";
 
-    if (process.env.RESEND_API_KEY) {
+    const resend = getResend();
+    if (resend) {
       await resend.emails.send({
         from: `RiverLoom Website <onboarding@resend.dev>`,
         to: [contactEmail],
