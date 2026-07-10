@@ -107,6 +107,16 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // HTML pages — prevent CDN from serving stale HTML after redeploys
+      {
+        source: "/:path((?!_next/static|assets|api|favicon\\.ico|manifest\\.webmanifest|robots\\.txt|sitemap\\.xml|apple-icon\\.png|icon0\\.svg|icon1\\.png).*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
       {
         source: "/assets/(.*)",
         headers: [
