@@ -39,14 +39,6 @@ export const siteConfig = {
       "https://linkedin.com/company/riverloom",
     twitter:
       process.env.NEXT_PUBLIC_TWITTER || "https://x.com/riverloom",
-    github:
-      process.env.NEXT_PUBLIC_GITHUB || "https://github.com/riverloom",
-    instagram:
-      process.env.NEXT_PUBLIC_INSTAGRAM ||
-      "https://instagram.com/riverloom",
-    youtube:
-      process.env.NEXT_PUBLIC_YOUTUBE ||
-      "https://youtube.com/@riverloom",
   },
   twitterHandle: "@riverloom",
   creator: "RiverLoom Team",
@@ -65,17 +57,12 @@ export const siteConfig = {
   socialPreview: "/assets/images/riverloom_hero_bg.png", // 1200×630 social card
 
   /* ─── Organization ─── */
-  foundingYear: 2020,
-  founder: "Sanjay Pandey",
+  foundingYear: 2021,
+  founder: "Ritesh Pandey",
   sameAs: [
     process.env.NEXT_PUBLIC_LINKEDIN ||
       "https://linkedin.com/company/riverloom",
     process.env.NEXT_PUBLIC_TWITTER || "https://x.com/riverloom",
-    process.env.NEXT_PUBLIC_GITHUB || "https://github.com/riverloom",
-    process.env.NEXT_PUBLIC_INSTAGRAM ||
-      "https://instagram.com/riverloom",
-    process.env.NEXT_PUBLIC_YOUTUBE ||
-      "https://youtube.com/@riverloom",
   ].filter(Boolean),
 
   /* ─── Verification ─── */
