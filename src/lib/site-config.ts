@@ -41,7 +41,7 @@ export const siteConfig = {
       process.env.NEXT_PUBLIC_TWITTER || "https://x.com/riverloom",
   },
   twitterHandle: "@riverloom",
-  creator: "RiverLoom Team",
+  creator: "RiverLoom",
   publisher: "RiverLoom",
   applicationName: "RiverLoom",
 
@@ -54,28 +54,21 @@ export const siteConfig = {
   /* ─── Logo — update paths when assets are ready ─── */
   logo: "/assets/logos/logo.png",
   logoSquare: "/assets/logos/namelogo.png",
-  socialPreview: "/assets/images/riverloom_hero_bg.png", // 1200×630 social card
+  socialPreview: "/assets/images/og-image.png",
 
   /* ─── Organization ─── */
   foundingYear: 2021,
-  founder: "Ritesh Pandey",
   sameAs: [
     process.env.NEXT_PUBLIC_LINKEDIN ||
       "https://linkedin.com/company/riverloom",
     process.env.NEXT_PUBLIC_TWITTER || "https://x.com/riverloom",
   ].filter(Boolean),
 
-  /* ─── Verification ─── */
+  /* ─── Verification — set via environment variables ─── */
   verification: {
-    google:
-      process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION ||
-      "your-google-verification-code",
-    bing:
-      process.env.NEXT_PUBLIC_BING_VERIFICATION ||
-      "your-bing-verification-code",
-    yandex:
-      process.env.NEXT_PUBLIC_YANDEX_VERIFICATION ||
-      "your-yandex-verification-code",
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
+    bing: process.env.NEXT_PUBLIC_BING_VERIFICATION || "",
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || "",
   },
 } as const;
 

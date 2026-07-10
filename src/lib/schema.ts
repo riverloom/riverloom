@@ -40,10 +40,6 @@ export function organizationSchema() {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address,
     },
-    founder: {
-      "@type": "Person",
-      name: siteConfig.founder,
-    },
     foundingDate: `${siteConfig.foundingYear}`,
     sameAs: siteConfig.sameAs,
     knowsAbout: [

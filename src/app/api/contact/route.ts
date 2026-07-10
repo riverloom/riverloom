@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY || "re_placeholder");
+const resend = new Resend(process.env.RESEND_API_KEY || "");
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, projectType, message } = body;
 
-    // Validation
     if (!name || typeof name !== "string" || name.trim().length < 2) {
       return NextResponse.json(
         { error: "Name must be at least 2 characters." },
@@ -36,8 +35,7 @@ export async function POST(request: NextRequest) {
 
     const contactEmail = process.env.CONTACT_EMAIL || "contact@riverloom.in";
 
-    // Skip sending if Resend key is still placeholder
-    if (process.env.RESEND_API_KEY && !process.env.RESEND_API_KEY.startsWith("re_placeholder")) {
+    if (process.env.RESEND_API_KEY) {
       await resend.emails.send({
         from: `RiverLoom Website <onboarding@resend.dev>`,
         to: [contactEmail],
@@ -49,13 +47,6 @@ export async function POST(request: NextRequest) {
           `Message:\n${message}`,
         ].join("\n\n"),
       });
-    } else {
-      console.log("[Contact Submission — email not sent, set RESEND_API_KEY]", {
-        name,
-        email,
-        projectType,
-        message,
-      });
     }
 
     return NextResponse.json(
@@ -66,8 +57,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-  } catch (err) {
-    console.error("[Contact API Error]", err);
+  } catch {
     return NextResponse.json(
       {
         error:

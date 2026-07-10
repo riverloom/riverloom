@@ -6,20 +6,15 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: [
-          "/",
-          "/services",
-          "/work",
-          "/about",
-          "/contact",
-          "/process",
-          "/privacy-policy",
-          "/terms-and-conditions",
-          "/refund-policy",
-          "/cancellation-policy",
-          "/careers",
+        allow: "/",
+        disallow: [
+          "/api/",
+          "/_next/",
+          "/admin/",
+          "/dashboard/",
+          "/temp/",
+          "/draft/",
         ],
-        disallow: ["/api/", "/_next/", "/admin", "/dashboard", "/temp", "/draft"],
       },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,

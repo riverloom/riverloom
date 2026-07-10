@@ -801,29 +801,41 @@ export default function Footer() {
                 ))}
               </div>
 
-              <motion.button
-                onClick={() =>
-                  window.scrollTo({ top: 0, behavior: "smooth" })
-                }
-                className="group flex items-center gap-2 text-[15px] md:text-[16px] font-medium text-[rgba(255,255,255,0.35)] hover:text-[#16C47F] transition-colors duration-300"
-                whileHover={{ color: "#16C47F" }}
-                transition={{ duration: 0.3 }}
-              >
-                <span>Back To Top</span>
-                <motion.span
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)]"
-                  whileHover={{
-                    rotate: 360,
-                    borderColor: "rgba(22,196,127,0.3)",
-                    backgroundColor: "rgba(22,196,127,0.08)",
-                  }}
-                  transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+              <div className="flex items-center gap-4">
+                {/* Designed & Developed by RedGobble */}
+                <a
+                  href="https://redgobble.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[13px] md:text-[14px] font-medium text-[rgba(255,255,255,0.25)] hover:text-[#16C47F] transition-colors duration-300 whitespace-nowrap"
                 >
-                  <span className="inline-flex">
-                    <ArrowUp className="h-4 w-4 text-[#16C47F] transition-transform duration-300 group-hover:-translate-y-[1px]" />
-                  </span>
-                </motion.span>
-              </motion.button>
+                  Designed & Developed by <span className="font-semibold">RedGobble</span>
+                </a>
+
+                <motion.button
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="group flex items-center gap-2 text-[15px] md:text-[16px] font-medium text-[rgba(255,255,255,0.35)] hover:text-[#16C47F] transition-colors duration-300"
+                  whileHover={{ color: "#16C47F" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span>Back To Top</span>
+                  <motion.span
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)]"
+                    whileHover={{
+                      rotate: 360,
+                      borderColor: "rgba(22,196,127,0.3)",
+                      backgroundColor: "rgba(22,196,127,0.08)",
+                    }}
+                    transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                  >
+                    <span className="inline-flex">
+                      <ArrowUp className="h-4 w-4 text-[#16C47F] transition-transform duration-300 group-hover:-translate-y-[1px]" />
+                    </span>
+                  </motion.span>
+                </motion.button>
+              </div>
             </motion.div>
           </motion.div>
         </div>
