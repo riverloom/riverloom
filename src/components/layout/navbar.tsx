@@ -5,10 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navLinks } from "@/data/navigation";
 import MagneticWrapper from "@/components/ui/MagneticWrapper";
+import { BOOKING_URL, BOOKING_ATTRS } from "@/lib/booking";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -176,11 +177,13 @@ export default function Navbar() {
 
             {/* ── RIGHT SIDE ── */}
             <div className="flex items-center gap-2 md:gap-3">
-              {/* Desktop CTA */}
+              {/* Desktop CTA — Book Free Consultation */}
               <div className="hidden sm:block">
                 <MagneticWrapper strength={0.25}>
-                  <Link
-                    href="/contact"
+                  <a
+                    href={BOOKING_URL}
+                    target={BOOKING_ATTRS.target}
+                    rel={BOOKING_ATTRS.rel}
                     className={cn(
                       "group relative inline-flex items-center gap-2",
                       "px-6 py-2.5 rounded-full text-base font-semibold",
@@ -202,9 +205,9 @@ export default function Navbar() {
                         "bg-gradient-to-r from-transparent via-white/15 to-transparent"
                       )}
                     />
-                    <span className="relative z-[1]">Start a Project</span>
-                    <ArrowRight className="relative z-[1] w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-                  </Link>
+                    <span className="relative z-[1]">Book Free Consultation</span>
+                    <Calendar className="relative z-[1] w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </a>
                 </MagneticWrapper>
               </div>
 
@@ -307,8 +310,10 @@ export default function Navbar() {
                 }}
                 className="mt-6"
               >
-                <Link
-                  href="/contact"
+                <a
+                  href={BOOKING_URL}
+                  target={BOOKING_ATTRS.target}
+                  rel={BOOKING_ATTRS.rel}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
                     "group relative inline-flex items-center gap-3",
@@ -319,9 +324,9 @@ export default function Navbar() {
                     "transition-all duration-300"
                   )}
                 >
-                  Start a Project
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                  Book a Call
+                  <Calendar className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
               </motion.div>
 
               <motion.p

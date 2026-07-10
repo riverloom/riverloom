@@ -3,8 +3,9 @@
 import { useState, useRef, useCallback, FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import { BOOKING_URL, BOOKING_ATTRS } from "@/lib/booking";
 import {
-  ArrowRight, ArrowUpRight, Check, Send, Loader2,
+  ArrowRight, ArrowUpRight, Check, Send, Loader2, Calendar,
   Cpu, Grid3x3, Monitor, Smartphone, Cloud, Globe,
   Brain, MessageSquare, FileText, Eye, TrendingUp, Repeat, Search, Shield,
   Layers, RefreshCw, Server, BarChart3, HeartPulse, Landmark, ShoppingCart,
@@ -12,6 +13,7 @@ import {
   Zap, Palette, Code2, Users, Lock, GitBranch, Database, Container,
   Activity, DollarSign, Bell, Handshake, Wifi, Bolt, Square, Apple,
   LayoutDashboard, Blocks, Gauge, ArrowUpWideNarrow, Clock,
+  Crosshair, Film,
 } from "lucide-react";
 import { ServiceContent } from "@/data/service-content";
 
@@ -24,6 +26,7 @@ const iconMap: Record<string, React.ElementType> = {
   Zap, Palette, Code2, Users, Lock, GitBranch, Database, Container,
   Activity, DollarSign, Bell, Handshake, Wifi, Bolt, Square, Apple,
   LayoutDashboard, Blocks, Gauge, ArrowUpWideNarrow, Clock,
+  Crosshair, Film,
 };
 
 function Icon({ name, className = "w-5 h-5" }: { name: string; className?: string }) {
@@ -413,7 +416,21 @@ export default function ServicePageClient({ content }: { content: ServiceContent
             <motion.p initial={{ opacity: 0, y: 16 }} animate={heroInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2, duration: 0.5, ease: [0.19, 1, 0.22, 1] }} className="text-[20px] md:text-[24px] leading-relaxed text-[var(--ink-dim)] max-w-2xl mb-8">
               {c.description}
             </motion.p>
-            
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={heroInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.3, duration: 0.5, ease: [0.19, 1, 0.22, 1] }} className="flex flex-col sm:flex-row gap-4">
+              <a
+                href={BOOKING_URL}
+                target={BOOKING_ATTRS.target}
+                rel={BOOKING_ATTRS.rel}
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full text-[16px] font-semibold bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-light)] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Book Free Consultation
+                <Calendar className="w-5 h-5" />
+              </a>
+              <a href="#contact-form" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[16px] font-medium border border-[var(--color-border)] text-[var(--ink)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-all duration-300">
+                Send a Message
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -448,6 +465,33 @@ export default function ServicePageClient({ content }: { content: ServiceContent
         </div>
       </Section>
 
+      {/* ═══ Inline CTA Banner ═══ */}
+      <Section className="bg-section-white">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <h3 className="text-[clamp(28px,3vw,40px)] font-bold text-[var(--ink)] leading-[1.15] mb-4">
+            Ready to get started?
+          </h3>
+          <p className="text-[17px] text-[var(--ink-dim)] mb-7 max-w-xl mx-auto">
+            Let's discuss your project and find the right solution for your business — no commitment required.
+          </p>
+          <a
+            href={BOOKING_URL}
+            target={BOOKING_ATTRS.target}
+            rel={BOOKING_ATTRS.rel}
+            className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-[16px] font-semibold bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-light)] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+          >
+            Book Free Consultation
+            <Calendar className="w-5 h-5" />
+          </a>
+        </motion.div>
+      </Section>
+
       {/* ═══ PROCESS ═══ */}
       <Section className="bg-section-white" id="process">
         <SectionHeader badge="Our Process" title="How We Deliver" description="A proven methodology that ensures quality, transparency, and successful outcomes." />
@@ -462,6 +506,33 @@ export default function ServicePageClient({ content }: { content: ServiceContent
             <TechCard key={tech} name={tech} index={i} />
           ))}
         </div>
+      </Section>
+
+      {/* ═══ Inline CTA ═══ */}
+      <Section>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <h3 className="text-[clamp(24px,3vw,36px)] font-bold text-[var(--ink)] leading-[1.15] mb-3">
+            See how we can help your team
+          </h3>
+          <p className="text-[16px] text-[var(--ink-dim)] mb-7 max-w-lg mx-auto">
+            Book a free 30-minute consultation to discuss your goals — no strings attached.
+          </p>
+          <a
+            href={BOOKING_URL}
+            target={BOOKING_ATTRS.target}
+            rel={BOOKING_ATTRS.rel}
+            className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-[16px] font-semibold bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-light)] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+          >
+            Book Free Consultation
+            <Calendar className="w-5 h-5" />
+          </a>
+        </motion.div>
       </Section>
 
       {/* ═══ WHY US ═══ */}
@@ -482,6 +553,33 @@ export default function ServicePageClient({ content }: { content: ServiceContent
             <IndustryCard key={ind.title} icon={ind.icon} title={ind.title} description={ind.description} index={i} />
           ))}
         </div>
+      </Section>
+
+      {/* ═══ Final CTA ═══ */}
+      <Section className="bg-section-white">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <h3 className="text-[clamp(28px,3vw,40px)] font-bold text-[var(--ink)] leading-[1.15] mb-4">
+            Let's build something great together
+          </h3>
+          <p className="text-[17px] text-[var(--ink-dim)] mb-7 max-w-xl mx-auto">
+            Whether you're launching a new product or scaling an existing one, our team is ready to help.
+          </p>
+          <a
+            href={BOOKING_URL}
+            target={BOOKING_ATTRS.target}
+            rel={BOOKING_ATTRS.rel}
+            className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-[16px] font-semibold bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-light)] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+          >
+            Book Free Consultation
+            <Calendar className="w-5 h-5" />
+          </a>
+        </motion.div>
       </Section>
 
       {/* ═══ FAQ ═══ */}

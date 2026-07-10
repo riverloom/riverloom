@@ -11,7 +11,8 @@ import {
   useSpring,
   AnimatePresence,
 } from "framer-motion";
-import { ChevronRight, ArrowUp, MapPin, Mail, Phone, Clock, MessageCircle } from "lucide-react";
+import { ChevronRight, ArrowUp, MapPin, Mail, Phone, Clock, MessageCircle, Calendar } from "lucide-react";
+import { BOOKING_URL, BOOKING_ATTRS } from "@/lib/booking";
 
 /* ═══════════════════════════════════════════════════════════
    DATA
@@ -74,7 +75,7 @@ const CONTACT_ITEMS: FooterLinkData[] = [
   { label: "+91 7007329693", href: "tel:+917007329693", isExternal: true },
   { label: "Sahibabad, Ghaziabad", href: "https://www.google.com/maps/search/?api=1&query=D-314,+2F+Lajpat+Nagar,+Sahibabad,+Ghaziabad,+Uttar+Pradesh+201007,+India", isExternal: true },
   { label: "Mon–Fri, 9 AM – 6 PM IST", href: "#", isInfo: true },
-  { label: "Let's Talk", href: "/contact" },
+  { label: "Book Free Consultation", href: "https://cal.com/riverloom-private-limited-1jnzbi/30min", isExternal: true },
 ];
 
 const SOCIAL_LINKS = [
@@ -323,6 +324,8 @@ function ContactItem({ item, index }: { item: FooterLinkData; index: number }) {
     icon = <MapPin className="h-5 w-5 text-[#16C47F] flex-shrink-0" />;
   } else if (labelLower === "let's talk" || labelLower === "support") {
     icon = <MessageCircle className="h-4 w-4 text-[#16C47F] flex-shrink-0" />;
+  } else if (labelLower.includes("book free consultation")) {
+    icon = <Calendar className="h-4 w-4 text-[#16C47F] flex-shrink-0" />;
   } else if (labelLower === "linkedin") {
     icon = (
       <svg viewBox="0 0 24 24" className="h-4 w-4 text-[#16C47F] flex-shrink-0" fill="currentColor">

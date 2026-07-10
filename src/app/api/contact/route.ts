@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY || "re_placeholder");
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,30 +34,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // [CONFIGURABLE] Plug in your email service here:
-    // e.g. Resend, SendGrid, Nodemailer, or a CRM API.
-    //
-    // Example with Resend:
-    //   import { Resend } from "resend";
-    //   const resend = new Resend(process.env.RESEND_API_KEY);
-    //   await resend.emails.send({
-    //     from: "RiverLoom <contact@riverloom.in>",
-    //     to: ["contact@riverloom.in"],
-    //     subject: `New enquiry from ${name}`,
-    //     text: `Name: ${name}\nEmail: ${email}\nType: ${projectType}\nMessage: ${message}`,
-    //   });
+    const contactEmail = process.env.CONTACT_EMAIL || "contact@riverloom.in";
 
-    // For now, log the submission (remove in production).
-    console.log("[Contact Submission]", { name, email, projectType, message });
+    // Skip sending if Resend key is still placeholder
+    if (process.env.RESEND_API_KEY && !process.env.RESEND_API_KEY.startsWith("re_placeholder")) {
+      await resend.emails.send({
+        from: `RiverLoom Website <onboarding@resend.dev>`,
+        to: [contactEmail],
+        subject: `New enquiry from ${name} — ${projectType}`,
+        text: [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Project Type: ${projectType}`,
+          `Message:\n${message}`,
+        ].join("\n\n"),
+      });
+    } else {
+      console.log("[Contact Submission — email not sent, set RESEND_API_KEY]", {
+        name,
+        email,
+        projectType,
+        message,
+      });
+    }
 
     return NextResponse.json(
-      { success: true, message: "Thanks for reaching out! We'll get back to you within 24 hours." },
+      {
+        success: true,
+        message:
+          "Thanks for reaching out! We'll get back to you within 24 hours.",
+      },
       { status: 200 }
     );
   } catch (err) {
     console.error("[Contact API Error]", err);
     return NextResponse.json(
-      { error: "Something went wrong. Please try again or email us directly." },
+      {
+        error:
+          "Something went wrong. Please try again or email us directly at contact@riverloom.in.",
+      },
       { status: 500 }
     );
   }

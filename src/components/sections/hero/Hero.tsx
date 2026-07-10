@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Typewriter from "./Typewriter";
 import CoreScene from "./CoreScene";
 import MagneticWrapper from "@/components/ui/MagneticWrapper";
+import { BOOKING_URL, BOOKING_ATTRS } from "@/lib/booking";
 
 /* ─── Animated counter ─── */
 function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -317,12 +318,14 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 flex-wrap justify-center"
           >
             <MagneticWrapper strength={0.25}>
-              <Link
-                href="/contact"
+              <a
+                href={BOOKING_URL}
+                target={BOOKING_ATTRS.target}
+                rel={BOOKING_ATTRS.rel}
                 className="group inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-[17px] font-semibold bg-[#169B62] text-white shadow-[0_4px_20px_rgba(22,155,98,0.3)] hover:shadow-[0_8px_40px_rgba(22,155,98,0.4)] hover:bg-[#1FC77E] hover:scale-[1.02] transition-all duration-300 ease-out-expo overflow-hidden relative"
               >
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out-expo bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-                <span className="relative z-[1]">Start Your Project</span>
+                <span className="relative z-[1]">Book Free Consultation</span>
                 <svg
                   className="relative z-[1] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
                   viewBox="0 0 16 16"
@@ -335,7 +338,7 @@ export default function Hero() {
                   <path d="M3 8h10" />
                   <path d="M9 4l4 4-4 4" />
                 </svg>
-              </Link>
+              </a>
             </MagneticWrapper>
 
             <Link

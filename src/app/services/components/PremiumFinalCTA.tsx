@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Calendar, ArrowUpRight } from "lucide-react";
 import { AuroraMesh, FloatingParticles, GlowingRing } from "./BackgroundDecorations";
+import { BOOKING_URL, BOOKING_ATTRS } from "@/lib/booking";
 
 export default function PremiumFinalCTA() {
   const ref = useRef<HTMLElement>(null);
@@ -146,17 +147,19 @@ export default function PremiumFinalCTA() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <Link
-                  href="/contact"
+                <a
+                  href={BOOKING_URL}
+                  target={BOOKING_ATTRS.target}
+                  rel={BOOKING_ATTRS.rel}
                   className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-300"
                   style={{
                     backgroundColor: "#169B62",
                     boxShadow: "0 4px 20px rgba(22,155,98,0.35)",
                   }}
                 >
-                  <span>Start Your Project</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-                </Link>
+                  <span>Book Free Consultation</span>
+                  <Calendar className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </a>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.03 }}
@@ -170,7 +173,7 @@ export default function PremiumFinalCTA() {
                     color: "#F8F6F1",
                   }}
                 >
-                  <span>Schedule Consultation</span>
+                  <span>Contact Us</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
               </motion.div>

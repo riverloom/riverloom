@@ -26,11 +26,11 @@ export const siteConfig = {
 
   /* ─── Contact ─── */
   email: process.env.NEXT_PUBLIC_EMAIL || "contact@riverloom.in",
-  phone: process.env.NEXT_PUBLIC_PHONE || "+91-XXXXXXXXXX",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "+91-XXXXXXXXXX",
+  phone: process.env.NEXT_PUBLIC_PHONE || "+91 7007329693",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "+91 7007329693",
   address:
     process.env.NEXT_PUBLIC_ADDRESS ||
-    "Your Office Address, City, State, India",
+    "D-314, 2F Lajpat Nagar, Sahibabad, Ghaziabad, Uttar Pradesh 201007, India",
 
   /* ─── Social ─── */
   social: {
@@ -62,7 +62,7 @@ export const siteConfig = {
   /* ─── Logo — update paths when assets are ready ─── */
   logo: "/assets/logos/logo.png",
   logoSquare: "/assets/logos/namelogo.png",
-  socialPreview: "/assets/images/riverloom-hero-bg.png", // 1200×630 social card
+  socialPreview: "/assets/images/riverloom_hero_bg.png", // 1200×630 social card
 
   /* ─── Organization ─── */
   foundingYear: 2020,

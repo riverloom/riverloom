@@ -3,7 +3,8 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Calendar } from "lucide-react";
+import { BOOKING_URL, BOOKING_ATTRS } from "@/lib/booking";
 import AiFirstIllustration from "@/components/ui/svg-illustrations/AiFirstIllustration";
 import ShieldIllustration from "@/components/ui/svg-illustrations/ShieldIllustration";
 import CloudArchitectureIllustration from "@/components/ui/svg-illustrations/CloudArchitectureIllustration";
@@ -660,13 +661,15 @@ export default function WhyRiverLoom() {
           </p>
 
           {/* CTA Button — large */}
-          <Link
-            href="/contact"
+          <a
+            href={BOOKING_URL}
+            target={BOOKING_ATTRS.target}
+            rel={BOOKING_ATTRS.rel}
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[#169B62] px-10 py-4 font-bold text-white shadow-[0_4px_24px_rgba(22,155,98,0.3)] transition-all duration-300 hover:shadow-[0_12px_48px_rgba(22,155,98,0.5)] hover:-translate-y-1"
             style={{ fontSize: "clamp(0.9375rem, 1.1vw, 1.125rem)" }}
           >
-            <span className="relative z-10">Schedule Strategy Call</span>
-            <ArrowUpRight className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <span className="relative z-10">Book Free Consultation</span>
+            <Calendar className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
             {/* Shimmer sweep */}
             <motion.div
               className="absolute inset-0 rounded-full bg-gradient-to-r from-white/15 to-transparent"
@@ -674,7 +677,7 @@ export default function WhyRiverLoom() {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             />
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

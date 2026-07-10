@@ -3,8 +3,9 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Check, Clock, Shield, Users, Cpu, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, Check, Clock, Shield, Users, Cpu, Sparkles } from "lucide-react";
 import { useMousePosition } from "@/hooks/useMousePosition";
+import { BOOKING_URL, BOOKING_ATTRS } from "@/lib/booking";
 
 /* ─── Timeline data ─── */
 const timelineSteps = [
@@ -309,15 +310,17 @@ export default function CTA() {
                   Let's discuss how RiverLoom can engineer your next breakthrough product. A quick call — no pitch, just possibilities.
                 </motion.p>
 
-                {/* CTA Button */}
+                {/* CTA Button — Book Free Consultation */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.45, duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
                   className="mt-10"
                 >
-                  <Link
-                    href="/contact"
+                  <a
+                    href={BOOKING_URL}
+                    target={BOOKING_ATTRS.target}
+                    rel={BOOKING_ATTRS.rel}
                     onClick={handleButtonClick}
                     className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full text-white font-semibold transition-all duration-500"
                     style={{
@@ -351,9 +354,9 @@ export default function CTA() {
                       ))}
                     </span>
 
-                    <span className="relative z-10">Start Your Project</span>
-                    <ArrowRight className="relative z-10 w-[20px] h-[20px] group-hover:translate-x-1.5 transition-transform duration-300" />
-                  </Link>
+                    <span className="relative z-10">Book Free Consultation</span>
+                    <Calendar className="relative z-10 w-[20px] h-[20px] group-hover:translate-x-1.5 transition-transform duration-300" />
+                  </a>
                 </motion.div>
 
                 {/* Trust chips */}

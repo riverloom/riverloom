@@ -12,6 +12,7 @@ import {
 } from "framer-motion";
 import {
   ArrowRight,
+  Calendar,
   ChevronRight,
   Code2,
   Cloud,
@@ -46,6 +47,7 @@ import {
 import { products } from "@/data/products";
 import { categories } from "@/data/categories";
 import AboutHero from "@/components/about/hero/AboutHero";
+import { BOOKING_URL, BOOKING_ATTRS } from "@/lib/booking";
 
 /* ═══════════════════════════════════════════════════════════
    DATA
@@ -515,11 +517,16 @@ function FinalCTASection() {
             Partner with RiverLoom and bring your most ambitious product vision to life. Start your journey today.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/contact" className="group inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-base font-semibold bg-[#169B62] text-white shadow-[0_4px_20px_rgba(22,155,98,0.25)] hover:shadow-[0_8px_40px_rgba(22,155,98,0.35)] hover:bg-[#1FC77E] transition-all duration-300">
-              Start Your Project <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <a
+              href={BOOKING_URL}
+              target={BOOKING_ATTRS.target}
+              rel={BOOKING_ATTRS.rel}
+              className="group inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-base font-semibold bg-[#169B62] text-white shadow-[0_4px_20px_rgba(22,155,98,0.25)] hover:shadow-[0_8px_40px_rgba(22,155,98,0.35)] hover:bg-[#1FC77E] transition-all duration-300"
+            >
+              Book Free Consultation <Calendar className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
             <Link href="/contact" className="group inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-base font-medium border border-[#E7E2D8] text-[#1C1C1C] hover:border-[#169B62] hover:text-[#169B62] hover:bg-[#E8F7EF] transition-all duration-300">
-              Book a Call <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              Contact Us <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </motion.div>

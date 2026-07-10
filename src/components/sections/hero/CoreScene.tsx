@@ -122,7 +122,9 @@ export default function CoreScene() {
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      const coreGeo = new THREE.IcosahedronGeometry(2.5, 64);
+      // detail 64 was generating billions of triangles (20 × 4^64) causing extreme lag.
+      // detail 3 gives the same smooth organic look with thousands not billions of triangles.
+      const coreGeo = new THREE.IcosahedronGeometry(2.5, 3);
       const coreMat = new THREE.ShaderMaterial({
         vertexShader,
         fragmentShader,
@@ -190,10 +192,11 @@ export default function CoreScene() {
       window.addEventListener("resize", handleResize);
 
       const clock = new THREE.Clock();
+      let animationId = 0;
 
       const animate = () => {
         if (destroyed) return;
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
         const t = clock.getElapsedTime();
 
         if (!reduceMotion) {
@@ -217,9 +220,16 @@ export default function CoreScene() {
 
       currentCleanupRef.current = () => {
         destroyed = true;
+        cancelAnimationFrame(animationId);
         window.removeEventListener("mousemove", handleMouse);
         window.removeEventListener("resize", handleResize);
         renderer.dispose();
+        coreGeo.dispose();
+        coreMat.dispose();
+        glowGeo.dispose();
+        glowMat.dispose();
+        dustGeo.dispose();
+        dustMat.dispose();
         if (el.contains(renderer.domElement)) {
           el.removeChild(renderer.domElement);
         }

@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site-config";
+
 export interface ServiceVisual {
   type: "ai-dashboard" | "platform-topology" | "saas-platform" | "mobile-app" | "crm-interface" | "marketing-analytics" | "cloud-console" | "website-showcase";
   accent: string;
@@ -28,6 +30,8 @@ export interface PremiumService {
   layoutVariant: "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h";
 }
 
+export const BOOKING_HREF = "https://cal.com/riverloom-private-limited-1jnzbi/30min";
+
 export const premiumServices: PremiumService[] = [
   {
     id: "ai-solutions",
@@ -57,8 +61,8 @@ export const premiumServices: PremiumService[] = [
     },
     ctaPrimary: "Explore AI Engineering",
     ctaPrimaryHref: "/services/ai-solutions",
-    ctaSecondary: "",
-    ctaSecondaryHref: "",
+    ctaSecondary: "Book Free Consultation",
+    ctaSecondaryHref: BOOKING_HREF,
     layoutVariant: "a",
   },
   {
@@ -89,8 +93,8 @@ export const premiumServices: PremiumService[] = [
     },
     ctaPrimary: "Explore Platform Engineering",
     ctaPrimaryHref: "/services/platform-engineering",
-    ctaSecondary: "Schedule Consultation",
-    ctaSecondaryHref: "/contact",
+    ctaSecondary: "Book Free Consultation",
+    ctaSecondaryHref: BOOKING_HREF,
     layoutVariant: "b",
   },
   {
@@ -121,8 +125,8 @@ export const premiumServices: PremiumService[] = [
     },
     ctaPrimary: "Explore Custom Software",
     ctaPrimaryHref: "/services/custom-software",
-    ctaSecondary: "",
-    ctaSecondaryHref: "",
+    ctaSecondary: "Book Free Consultation",
+    ctaSecondaryHref: BOOKING_HREF,
     layoutVariant: "c",
   },
   {
@@ -153,8 +157,8 @@ export const premiumServices: PremiumService[] = [
     },
     ctaPrimary: "Explore Mobile Development",
     ctaPrimaryHref: "/services/mobile-development",
-    ctaSecondary: "Schedule Consultation",
-    ctaSecondaryHref: "/contact",
+    ctaSecondary: "Book Free Consultation",
+    ctaSecondaryHref: BOOKING_HREF,
     layoutVariant: "d",
   },
   {
@@ -184,9 +188,9 @@ export const premiumServices: PremiumService[] = [
       glowColor: "rgba(6,182,212,0.15)",
     },
     ctaPrimary: "Explore SaaS Development",
-    ctaPrimaryHref: "/contact",
-    ctaSecondary: "",
-    ctaSecondaryHref: "",
+    ctaPrimaryHref: "/services/saas-crm-erp",
+    ctaSecondary: "Book Free Consultation",
+    ctaSecondaryHref: BOOKING_HREF,
     layoutVariant: "e",
   },
   {
@@ -216,9 +220,9 @@ export const premiumServices: PremiumService[] = [
       glowColor: "rgba(225,29,72,0.15)",
     },
     ctaPrimary: "Launch Your Growth Campaign",
-    ctaPrimaryHref: "/contact",
-    ctaSecondary: "",
-    ctaSecondaryHref: "",
+    ctaPrimaryHref: "/services/digital-marketing",
+    ctaSecondary: "Book Free Consultation",
+    ctaSecondaryHref: BOOKING_HREF,
     layoutVariant: "f",
   },
   {
@@ -249,8 +253,8 @@ export const premiumServices: PremiumService[] = [
     },
     ctaPrimary: "Explore Cloud & DevOps",
     ctaPrimaryHref: "/services/cloud-devops",
-    ctaSecondary: "Schedule Consultation",
-    ctaSecondaryHref: "/contact",
+    ctaSecondary: "Book Free Consultation",
+    ctaSecondaryHref: BOOKING_HREF,
     layoutVariant: "g",
   },
   {
@@ -281,8 +285,8 @@ export const premiumServices: PremiumService[] = [
     },
     ctaPrimary: "Explore Web Development",
     ctaPrimaryHref: "/services/web-development",
-    ctaSecondary: "",
-    ctaSecondaryHref: "",
+    ctaSecondary: "Book Free Consultation",
+    ctaSecondaryHref: BOOKING_HREF,
     layoutVariant: "h",
   },
 ];

@@ -69,14 +69,17 @@ export function MicrosoftClarity() {
 
 export function Hotjar() {
   const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;
-  if (!hotjarId) return null;
+  if (!hotjarId || hotjarId === "your-hotjar-id" || hotjarId === "XXXXXXXXX") return null;
+
+  const numericId = Number(hotjarId);
+  if (isNaN(numericId)) return null;
 
   return (
     <Script id="hotjar-init" strategy="afterInteractive">
       {`
         (function(h,o,t,j,a,r){
           h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-          h._hjSettings={hjid:${hotjarId},hjsv:6};
+          h._hjSettings={hjid:${numericId},hjsv:6};
           a=o.getElementsByTagName('head')[0];
           r=o.createElement('script');r.async=1;
           r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
@@ -89,7 +92,7 @@ export function Hotjar() {
 
 export function MetaPixel() {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
-  if (!pixelId) return null;
+  if (!pixelId || pixelId === "your-pixel-id") return null;
 
   return (
     <Script id="meta-pixel-init" strategy="afterInteractive">
@@ -111,7 +114,7 @@ export function MetaPixel() {
 
 export function LinkedInInsight() {
   const partnerId = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
-  if (!partnerId) return null;
+  if (!partnerId || partnerId === "your-partner-id") return null;
 
   return (
     <Script id="linkedin-insight-init" strategy="afterInteractive">

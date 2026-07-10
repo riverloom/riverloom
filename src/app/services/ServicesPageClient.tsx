@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Calendar } from "lucide-react";
 import { premiumServices } from "@/data/services";
 import { FloatingGlows, FloatingDots, SectionGlow } from "./components/BackgroundDecorations";
 import { ServiceVisualRouter } from "./components/ServiceVisuals";
@@ -48,9 +48,15 @@ function HeroSection() {
           </p>
           <motion.div className="flex flex-wrap gap-3 mt-5" initial={{ opacity: 0, y: 10 }} animate={iv ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.3 }}>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white" style={{ backgroundColor: "#169B62", boxShadow: "0 4px 20px rgba(22,155,98,0.35)" }}>
-                Start Your Project <ArrowRight className="w-4 h-4" />
-              </Link>
+              <a
+                href="https://cal.com/riverloom-private-limited-1jnzbi/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white"
+                style={{ backgroundColor: "#169B62", boxShadow: "0 4px 20px rgba(22,155,98,0.35)" }}
+              >
+                Book Free Consultation <Calendar className="w-4 h-4" />
+              </a>
             </motion.div>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link href="/work" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold" style={{ border: "1px solid #E7E2D8", color: "#1C1C1C" }}>
@@ -96,6 +102,8 @@ function SectionDivider({ accent }: { accent: string }) {
 function ServiceContent({ service }: { service: typeof premiumServices[0] }) {
   const ref = useRef<HTMLDivElement>(null);
   const iv = useInView(ref, { once: true, margin: "-60px" });
+
+  const isExternal = (href: string) => href.startsWith("http");
 
   return (
     <div ref={ref} className="relative">
@@ -171,14 +179,27 @@ function ServiceContent({ service }: { service: typeof premiumServices[0] }) {
         </motion.div>
         {service.ctaSecondary && (
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href={service.ctaSecondaryHref}
-              className="group inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[12px] font-semibold transition-all duration-300"
-              style={{ border: `1px solid ${service.accent}20`, color: service.accent }}
-            >
-              <span>{service.ctaSecondary}</span>
-              <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </Link>
+            {isExternal(service.ctaSecondaryHref) ? (
+              <a
+                href={service.ctaSecondaryHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[12px] font-semibold transition-all duration-300"
+                style={{ border: `1px solid ${service.accent}20`, color: service.accent }}
+              >
+                <span>{service.ctaSecondary}</span>
+                <Calendar className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </a>
+            ) : (
+              <Link
+                href={service.ctaSecondaryHref}
+                className="group inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[12px] font-semibold transition-all duration-300"
+                style={{ border: `1px solid ${service.accent}20`, color: service.accent }}
+              >
+                <span>{service.ctaSecondary}</span>
+                <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
+            )}
           </motion.div>
         )}
       </motion.div>

@@ -31,10 +31,10 @@ const pillars: Pillar[] = [
     colorGlow: "rgba(22,155,98,0.2)",
     colorBg: "#F0FDF4",
     services: [
-      { name: "Custom Software Development", href: "/contact" },
+      { name: "Custom Software Development", href: "/services/custom-software" },
       { name: "AI Solutions & Automation", href: "/solutions/ai-engineering" },
-      { name: "Web Applications", href: "/contact" },
-      { name: "Mobile Applications", href: "/contact" },
+      { name: "Web Applications", href: "/services/web-development" },
+      { name: "Mobile Applications", href: "/services/mobile-development" },
       { name: "SaaS / CRM / ERP Platforms", href: "/solutions/business" },
     ],
   },
@@ -48,7 +48,7 @@ const pillars: Pillar[] = [
     colorBg: "#EFF6FF",
     services: [
       { name: "Cloud & DevOps", href: "/solutions/cloud" },
-      { name: "API Integration", href: "/contact" },
+      { name: "API Integration", href: "/services/platform-engineering" },
       { name: "Performance Optimization", href: "/solutions/performance" },
       { name: "Security & Monitoring", href: "/solutions/security" },
       { name: "Infrastructure Automation", href: "/solutions/cloud" },
@@ -65,9 +65,9 @@ const pillars: Pillar[] = [
     services: [
       { name: "SEO & Digital Growth", href: "/solutions/performance" },
       { name: "AI Consulting", href: "/solutions/ai-engineering" },
-      { name: "Analytics Dashboards", href: "/contact" },
+      { name: "Analytics Dashboards", href: "/solutions/performance" },
       { name: "Product Optimization", href: "/solutions/performance" },
-      { name: "Continuous Support", href: "/solutions/partnership" },
+      { name: "Continuous Support", href: "/contact" },
     ],
   },
 ];
